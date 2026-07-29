@@ -1,7 +1,7 @@
 [project]
-name = "blank-app-template"
+name = "pwc-tree"
 version = "0.1.0"
-description = "A simple Streamlit app template."
+description = "PWC Tree"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
