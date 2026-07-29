@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+from st_supabase_connection import SupabaseConnection
 
 u = 'https://committees-api.parliament.sa.gov.au/api/CommitteePublicFolder'
 

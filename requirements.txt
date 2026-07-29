@@ -1,2 +1,2 @@
 requests
-pyturso
+st-supabase-connection
