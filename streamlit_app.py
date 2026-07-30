@@ -17,4 +17,14 @@ data = response.json()
 d = data['Folders']
 
 st.write("Done")
-st.write(d)
+# st.write(d)
+
+# Initialize connection.
+conn = st.connection("supabase",type=SupabaseConnection)
+
+# Perform query.
+rows = conn.query("*", table="pwc", ttl="10m").execute()
+
+# Print results.
+for row in rows.data:
+    st.write(row)
