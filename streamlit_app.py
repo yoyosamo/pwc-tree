@@ -1,6 +1,6 @@
 import streamlit as st
 import requests
-from st_supabase_connection import SupabaseConnection
+from st_supabase_connection import SupabaseConnection, execute_query
 
 u = 'https://committees-api.parliament.sa.gov.au/api/CommitteePublicFolder'
 
@@ -20,10 +20,17 @@ st.write("Done")
 # st.write(d)
 
 # Initialize connection.
-conn = st.connection("supabase",type=SupabaseConnection)
+st_supabase_client = st.connection(
+    name="YOUR_CONNECTION_NAME",
+    type=SupabaseConnection,
+    ttl=None,
+)
 
 # Perform query.
-rows = conn.query("*", table="pwc", ttl="10m").execute()
+rows = execute_query(
+    st_supabase.table("pwc").select("*"),
+    ttl="15m",
+)
 
 # Print results.
 for row in rows.data:
