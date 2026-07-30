@@ -47,3 +47,13 @@ for f in d:
         ),
         ttl=0,
     )
+
+# Perform query.
+rows = execute_query(
+    db.table("pwc").select("*"),
+    ttl="15m",
+)
+
+# Print results.
+for row in rows.data:
+    st.write(row)
