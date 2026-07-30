@@ -35,3 +35,15 @@ rows = execute_query(
 # Print results.
 for row in rows.data:
     st.write(row)
+
+# Add rows
+for f in d:
+    execute_query(
+        db.table("pwc").insert(
+            [
+                {"name" : f['FolderName']},
+                {"url" : f['ServerRelativeUrl']}
+            ]
+        ),
+        ttl=0,
+    )
