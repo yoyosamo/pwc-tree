@@ -20,7 +20,7 @@ st.write("Done")
 # st.write(d)
 
 # Initialize connection.
-st_supabase_client = st.connection(
+db = st.connection(
     name="supabase",
     type=SupabaseConnection,
     ttl=None,
@@ -28,7 +28,7 @@ st_supabase_client = st.connection(
 
 # Perform query.
 rows = execute_query(
-    st_supabase.table("pwc").select("*"),
+    db.table("pwc").select("*"),
     ttl="15m",
 )
 
