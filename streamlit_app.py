@@ -21,7 +21,7 @@ st.write("Done")
 
 # Initialize connection.
 st_supabase_client = st.connection(
-    name="YOUR_CONNECTION_NAME",
+    name="supabase",
     type=SupabaseConnection,
     ttl=None,
 )
